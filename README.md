@@ -3,7 +3,7 @@
 Usage: python3 main.py
 
 
-You will need to make a json file to connect to a SMTP server following this syntax:
+You will need to make a json file called `config.json` to connect to a SMTP server following this syntax:
 
 ```json
 {
