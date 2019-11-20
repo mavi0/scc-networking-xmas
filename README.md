@@ -1,6 +1,6 @@
 # SCC Networking Xmas Reminder Script
 
-Usage: python3 main.py
+Usage: `python3 main.py`
 
 
 You will need to make a json file called `config.json` to connect to a SMTP server following this syntax:
