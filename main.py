@@ -34,18 +34,19 @@ def main():
     choices = load_json("xmas.json")
     for choice in choices:
         content = "Hello " + choice["Full Name"] + \
-            ", \n\nThis is an automated email reminding you of the SCC Networking Group Christmas meal, as well as your menu choices.\n" + \
-            "\nDate of event: Tuesday 4th of December at 6:30pm at The White Cross Pub\n" + \
-            "\nMenu Choices:\nStarter : " + \
-            choice["Starter"] + "\nMain: " + choice["Main"] + \
+            ", \n\n" + config["preamble"] + "\n" + \
+            "\nDate of event: " + config["event_detail"] + "\n" + \
+            "\nMenu Choices:\nStarter : " + choice["Starter"] + \
+            "\nMain: " + choice["Main"] + \
             "\nDessert: " + choice["Dessert"]
+        
         if not choice["Additional comment to pass to restaurant"] == "":
             content = content + "\nAdditional comment to pass to restaurant: " + \
                 choice["Additional comment to pass to restaurant"]
         else:
             content = content + "\nYou left no additional comment to pass to the resturant."
 
-        content = content + "\n\nBest wishes,\n\nEleanorbot"
+        content = content + "\n\nBest wishes,\n\n" + config["from"]
 
         print(content)
         mail(choice["Email Address"],
