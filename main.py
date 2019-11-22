@@ -5,6 +5,7 @@ import sys
 import smtplib
 import ssl
 import json
+import datetime
 
 config = {}
 
@@ -30,6 +31,7 @@ def mail(receiver, subject, content):
 
 
 def main():
+    print("Start time: " + str(datetime.datetime.now()))
     load_config()
     choices = load_json("xmas.json")
     for choice in choices:
@@ -51,6 +53,7 @@ def main():
         print(content)
         mail(choice["Email Address"],
              "SCC Networking Group Christmas Meal Reminder", content)
-
+        
+        print("Finish time: " + str(datetime.datetime.now()))
 
 main()
